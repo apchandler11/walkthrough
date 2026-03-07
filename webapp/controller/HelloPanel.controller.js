@@ -20,6 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/core/
                     Fragment.load({
                         id: oView.getId(),
                         name: "demo.walkthrough.view.HelloDialog",
+                        controller: this
                     }).then(function (oDialog) {
                         // connect dialog to the root view of this component (models, lifecycle)
                         oView.addDependent(oDialog);
@@ -29,6 +30,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/core/
                 else {
                     this.byId("helloDialog").open();
                 }
+            }, 
+            onCloseDialog: function () {
+                this.byId("helloDialog").close();
             }
         });
     }
