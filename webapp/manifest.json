@@ -44,7 +44,11 @@
                 "settings": {
                     "bundleName": "demo.walkthrough.i18n.i18n"
                 }
-            }
+            },
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Invoices.json"
+            } 
         },
         "resources": {
             "css": [
