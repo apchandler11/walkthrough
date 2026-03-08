@@ -9,7 +9,17 @@
         },
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
-        "resources": "resources.json"
+        "resources": "resources.json",
+        "ach": "CA-UI5-DOC",
+        "dataSources": {
+            "invoiceRemote": {
+                "uri": "http://localhost:8081/https://services.odata.org/V2/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
     },
     "sap.ui": {
         "technology": "SAPUI5",
@@ -46,9 +56,8 @@
                 }
             },
             "invoice": {
-                "type": "sap.ui.model.json.JSONModel",
-                "uri": "model/Invoices.json"
-            } 
+                "dataSource": "invoiceRemote"
+            }
         },
         "resources": {
             "css": [
