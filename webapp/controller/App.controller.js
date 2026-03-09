@@ -4,9 +4,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller"
     "use strict";
 
     return Controller.extend("demo.walkthrough.controller.App", {
-        
-        onOpenDialog: function() {
-            this.getOwnerComponent().openHelloDialog();
-        }
+        onOpenDialog: function () {
+                this.getOwnerComponent().openHelloDialog();
+            }
     });
 }); 

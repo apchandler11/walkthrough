@@ -10,7 +10,6 @@
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "resources": "resources.json",
-        "ach": "CA-UI5-DOC",
         "dataSources": {
             "invoiceRemote": {
                 "uri": "http://localhost:8081/https://services.odata.org/V2/Northwind/Northwind.svc/",
@@ -45,7 +44,8 @@
         "dependencies": {
             "minUI5Version": "1.71.78",
             "libs": {
-                "sap.m": {}
+                "sap.m": {}, 
+                "sap.ui.core": {}
             }
         },
         "models": {
@@ -65,6 +65,39 @@
                     "uri": "css/style.css"
                 }
             ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "async": true,
+                "type": "View",
+                "viewType": "XML",
+                "path": "demo.walkthrough.view",
+                "controlId": "app",
+                "controlAggregation": "pages"
+            },
+            "routes": [
+                {
+                "pattern": "",
+                "name": "overview",
+                "target": "overview"
+                },
+                {
+                "pattern": "detail",
+                "name": "detail",
+                "target": "detail"
+                }
+            ],
+            "targets": {
+                "overview": {
+                    "viewName": "Overview",
+                    "viewLevel": 1
+                },
+                "detail": {
+                    "viewName": "Detail",
+                    "viewLevel": 2
+                }
+            }
         }
     }
 }

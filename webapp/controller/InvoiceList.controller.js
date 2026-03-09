@@ -30,6 +30,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel",
             var oBinding = oList.getBinding("items");
             oBinding.filter(aFilter);
 
+        }, 
+
+        onPress: function(oEvent) {
+            //Best way to get the router is via the component container
+            // Put in a base class if you find yourself doing this a lot
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("detail", );
         }
     });
 });
