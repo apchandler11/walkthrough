@@ -33,10 +33,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel",
         }, 
 
         onPress: function(oEvent) {
+
+            var oItem = oEvent.getSource();
             //Best way to get the router is via the component container
             // Put in a base class if you find yourself doing this a lot
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("detail", );
+            oRouter.navTo("detail", { 
+                invoicePath: oItem.getBindingContext("invoice").getPath().substr(1) 
+            });
         }
     });
 });
