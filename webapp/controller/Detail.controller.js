@@ -1,5 +1,6 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"
-], function(Controller) {
+sap.ui.define(["sap/ui/core/mvc/Controller",
+    "sap/ui/core/routing/History"
+], function(Controller, History) {
     "use strict";
 
     return Controller.extend("demo.walkthrough.controller.Detail", {
@@ -14,6 +15,18 @@ sap.ui.define(["sap/ui/core/mvc/Controller"
                 path: "/" + oEvent.getParameter("arguments").invoicePath,
                 model: "invoice"
             });
-        }   
+        },
+        
+        onNavBack: function() {
+            var oHistory = History.getInstance();
+            var sPreviousHash = oHistory.getPreviousHash();
+
+            if (sPreviousHash !== undefined) {
+                window.history.go(-1);
+            } else {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("overview", {}, true);
+            }
+        }
     });
-});
+});   
